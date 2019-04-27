@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="jax-ws">
+    <output-path>$PROJECT_DIR$/out/artifacts/jax_ws</output-path>
+    <root id="archive" name="jax-ws.war">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
