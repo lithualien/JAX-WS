@@ -5,8 +5,6 @@ import com.github.lithualien.dao.BikeDao;
 import com.github.lithualien.dao.BikeDaoImpl;
 
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -21,13 +19,17 @@ public class BikeServiceImpl implements BikeService {
     }
 
     @WebMethod
-    public Bike addBike(@WebParam(name = "brand") String brand,
-                        @WebParam(name = "type") String type,
-                        @WebParam(name = "colour") String colour,
-                        @WebParam(name = "weight") double weight,
-                        @WebParam(name = "gears") int gears,
-                        @WebParam(name = "wheelSize") int wheelSize,
-                        @WebParam(name = "price") float price) {
+    public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
        return bikeDaoImpl.addBike(brand, type, colour, weight, gears, wheelSize, price);
+    }
+
+    @WebMethod
+    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
+        return bikeDaoImpl.updateBike(ID, brand, type, colour, weight, gears, wheelSize, price);
+    }
+
+    @WebMethod
+    public boolean deleteBike(int ID) {
+        return bikeDaoImpl.deleteBike(ID);
     }
 }

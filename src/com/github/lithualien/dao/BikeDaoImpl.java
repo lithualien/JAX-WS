@@ -8,6 +8,7 @@ import java.util.List;
 public class BikeDaoImpl implements BikeDao {
 
     private List<Bike> bikes;
+    private int i = 3;
 
     public BikeDaoImpl() {
         bikes = new ArrayList<>();
@@ -20,8 +21,32 @@ public class BikeDaoImpl implements BikeDao {
     }
 
     public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
-        Bike bike = new Bike(3, brand, type, colour, weight, gears, wheelSize, price);
+        Bike bike = new Bike(i, brand, type, colour, weight, gears, wheelSize, price);
         bikes.add(bike);
+        i++;
         return bike;
+    }
+
+    @Override
+    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
+        bikes.get(ID - 1).setBrand(brand);
+        bikes.get(ID - 1).setType(type);
+        bikes.get(ID - 1).setColour(colour);
+        bikes.get(ID - 1).setWeight(weight);
+        bikes.get(ID - 1).setGears(gears);
+        bikes.get(ID - 1).setWheelSize(wheelSize);
+        bikes.get(ID - 1).setPrice(price);
+        return bikes.get(ID - 1);
+    }
+
+    @Override
+    public boolean deleteBike(int ID) {
+        for (Bike temp : bikes) {
+            if(temp.getID() == ID) {
+                bikes.remove(ID - 1);
+                return true;
+            }
+        }
+        return false;
     }
 }

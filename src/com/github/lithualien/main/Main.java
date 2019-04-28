@@ -7,6 +7,6 @@ import javax.xml.ws.Endpoint;
 public class Main {
 
     public static void main(String[] argv) {
-        Endpoint.publish("http://localhost:8080/JAX_WS/services/BikeServicesImp?wsdl", new BikeServiceImpl());
+        Endpoint.publish("http://localhost:8080/JAX_WS/services/BikeService?wsdl", new BikeServiceImpl());
     }
 }

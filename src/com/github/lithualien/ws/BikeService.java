@@ -20,4 +20,17 @@ public interface BikeService {
                  @WebParam(name = "gears") int gears,
                  @WebParam(name = "wheelSize") int wheelSize,
                  @WebParam(name = "price") float price);
+
+    @WebMethod
+    Bike updateBike(@WebParam(name = "ID") int ID,
+                    @WebParam(name = "brand") String brand,
+                    @WebParam(name = "type") String type,
+                    @WebParam(name = "colour") String colour,
+                    @WebParam(name = "weight") double weight,
+                    @WebParam(name = "gears") int gears,
+                    @WebParam(name = "wheelSize") int wheelSize,
+                    @WebParam(name = "price") float price);
+
+    @WebMethod
+    boolean deleteBike(@WebParam(name = "ID") int ID);
 }
