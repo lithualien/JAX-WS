@@ -26,10 +26,12 @@ public interface BikeDao {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the new bike.
      */
 
-    Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price);
+    Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number);
 
     /**
      * Method to update the existing bike.
@@ -41,10 +43,12 @@ public interface BikeDao {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike.
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the updated bike.
      */
 
-    Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price);
+    Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number);
 
     /**
      * Method to delete the existing bike.

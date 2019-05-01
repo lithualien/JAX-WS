@@ -71,8 +71,8 @@ public class BikeTest {
 
     @Test
     public void toString1() {
-        bike2 = new Bike(1, "Baltik Vairas", "plento", "raudona", 15.5, 21, 9, 499.99f);
-        assertEquals("1. Gamintojas: Baltik Vairas | Rūšis: plento | Svoris: 15.5kg | Spalva: raudona | Pavarų kiekis: 21 | Rato dydis: 9 inch. | Kaina: 499,99 €\n",
+        bike2 = new Bike(1, "Baltik Vairas", "plento", "raudona", 15.5, 21, 9, 499.99f, "Verkiu g. 45, Vilnius", "37061234567");
+        assertEquals("1. Gamintojas: Baltik Vairas | Rūšis: plento | Svoris: 15.5kg | Spalva: raudona | Pavarų kiekis: 21 | Rato dydis: 9 inch. | Kaina: 499,99 € | Adresas: Verkiu g. 45, Vilnius | Telefonas: 37061234567\n",
                 bike2.toString());
     }
 }

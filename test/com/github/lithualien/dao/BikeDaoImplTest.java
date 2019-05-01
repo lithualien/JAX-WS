@@ -32,7 +32,7 @@ public class BikeDaoImplTest {
 
     @Test
     public void addBike() {
-        bikeDaoImpl.addBike("Baltik Vairas", "plento", "raudona", 16.85, 21, 8, 499.99f);
+        bikeDaoImpl.addBike("Baltik Vairas", "plento", "raudona", 16.85, 21, 8, 499.99f, "Verkiu g. 45, Vilnius", "37061234567");
         assertEquals("Baltik Vairas", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getBrand());
         assertEquals("plento", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getType());
         assertEquals("raudona", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getColour());
@@ -40,11 +40,13 @@ public class BikeDaoImplTest {
         assertEquals(21, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getGears());
         assertEquals(8, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getWheelSize());
         assertEquals(499.99f, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getPrice(), 0.01);
+        assertEquals("Verkiu g. 45, Vilnius", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getShop().get(0).getAddress());
+        assertEquals("37061234567", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getShop().get(0).getNumber());
     }
 
     @Test
     public void updateBike() {
-        bikeDaoImpl.updateBike(2, "Baltic Wheel", "Electric", "Pink", 14.35, 20, 9, 989.99f);
+        bikeDaoImpl.updateBike(2, "Baltic Wheel", "Electric", "Pink", 14.35, 20, 9, 989.99f, "Verkiu g. 45, Vilnius", "37061234567");
         assertEquals("Baltic Wheel", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getBrand());
         assertEquals("Electric", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getType());
         assertEquals("Pink", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getColour());
@@ -52,6 +54,8 @@ public class BikeDaoImplTest {
         assertEquals(20, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getGears());
         assertEquals(9, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getWheelSize());
         assertEquals(989.99f, bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getPrice(), 0.01);
+        assertEquals("Verkiu g. 45, Vilnius", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getShop().get(0).getAddress());
+        assertEquals("37061234567", bikeDaoImpl.getAll().get(bikeDaoImpl.countBikes() - 1).getShop().get(0).getNumber());
 
     }
 

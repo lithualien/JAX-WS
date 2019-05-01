@@ -1,6 +1,7 @@
 package com.github.lithualien.dao;
 
 import com.github.lithualien.bike.Bike;
+import com.github.lithualien.shop.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ public class BikeDaoImpl implements BikeDao {
 
     public BikeDaoImpl() {
         bikes = new ArrayList<>();
-        bikes.add(new Bike(1, "Baltic Wheel", "Electric", "White", 14.25, 21, 8, 989.99f));
-        bikes.add(new Bike(2, "Baltic Wheel", "Electric", "Red", 14.35, 20, 9, 989.99f));
+        bikes.add(new Bike(1, "Baltic Wheel", "Electric", "White", 14.25, 21, 8, 989.99f, "Verkiu g. 45, Vilnius", "37061234567"));
+        bikes.add(new Bike(2, "Baltic Wheel", "Electric", "Red", 14.35, 20, 9, 989.99f, "Verkiu g. 45, Vilnius", "37061234567"));
     }
 
     /**
@@ -43,11 +44,13 @@ public class BikeDaoImpl implements BikeDao {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the new bike.
      */
 
-    public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
-        Bike bike = new Bike(i, brand, type, colour, weight, gears, wheelSize, price);
+    public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number) {
+        Bike bike = new Bike(i, brand, type, colour, weight, gears, wheelSize, price, address, number);
         bikes.add(bike);
         i++;
         return bike;
@@ -63,10 +66,12 @@ public class BikeDaoImpl implements BikeDao {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike.
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the updated bike.
      */
 
-    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
+    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number) {
         bikes.get(ID - 1).setBrand(brand);
         bikes.get(ID - 1).setType(type);
         bikes.get(ID - 1).setColour(colour);
@@ -74,6 +79,9 @@ public class BikeDaoImpl implements BikeDao {
         bikes.get(ID - 1).setGears(gears);
         bikes.get(ID - 1).setWheelSize(wheelSize);
         bikes.get(ID - 1).setPrice(price);
+        List<Shop> shops = new ArrayList<>();
+        shops.add(new Shop(address, number));
+        bikes.get(ID - 1).setShop(shops);
         return bikes.get(ID - 1);
     }
 

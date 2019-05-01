@@ -32,6 +32,8 @@ public interface BikeService {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the new bike.
      */
 
@@ -42,7 +44,9 @@ public interface BikeService {
                  @WebParam(name = "weight") double weight,
                  @WebParam(name = "gears") int gears,
                  @WebParam(name = "wheelSize") int wheelSize,
-                 @WebParam(name = "price") float price);
+                 @WebParam(name = "price") float price,
+                 @WebParam(name = "address") String address,
+                 @WebParam(name = "number")String number);
 
     /**
      * Web method to update the existing bike.
@@ -54,6 +58,8 @@ public interface BikeService {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike.
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the updated bike.
      */
 
@@ -65,7 +71,9 @@ public interface BikeService {
                     @WebParam(name = "weight") double weight,
                     @WebParam(name = "gears") int gears,
                     @WebParam(name = "wheelSize") int wheelSize,
-                    @WebParam(name = "price") float price);
+                    @WebParam(name = "price") float price,
+                    @WebParam(name = "address") String address,
+                    @WebParam(name = "number")String number);
 
     /**
      * Web method to delete the existing bike.

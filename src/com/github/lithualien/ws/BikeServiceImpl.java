@@ -42,15 +42,17 @@ public class BikeServiceImpl implements BikeService {
      * @param type the type of the bike.
      * @param colour the colour of the bike.
      * @param weight the weight of the bike
-     * @param gears the amount of geras of the bike.
+     * @param gears the amount of gears of the bike.
      * @param wheelSize the size of the wheel of the bike.
-     * @param price the price of the bike
+     * @param price the price of the bike.
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the new bike.
      */
 
     @WebMethod
-    public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
-       return bikeDaoImpl.addBike(brand, type, colour, weight, gears, wheelSize, price);
+    public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number) {
+       return bikeDaoImpl.addBike(brand, type, colour, weight, gears, wheelSize, price, address, number);
     }
 
     /**
@@ -63,12 +65,14 @@ public class BikeServiceImpl implements BikeService {
      * @param gears the amount of geras of the bike.
      * @param wheelSize the size of the wheel of the bike.
      * @param price the price of the bike.
+     * @param address the address of the shop.
+     * @param number the phone number of the shop.
      * @return the updated bike.
      */
 
     @WebMethod
-    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
-        return bikeDaoImpl.updateBike(ID, brand, type, colour, weight, gears, wheelSize, price);
+    public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number) {
+        return bikeDaoImpl.updateBike(ID, brand, type, colour, weight, gears, wheelSize, price, address, number);
     }
 
     /**
