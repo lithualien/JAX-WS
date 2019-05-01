@@ -1,9 +1,11 @@
-package com.github.lithualien.bikes;
+package com.github.lithualien.bike;
+
+import com.github.lithualien.shop.Shop;
 
 import java.text.NumberFormat;
 
 /**
- * Defines all the attributes about a bike.
+ * Class to define all the attributes about the bike.
  * @author Tomas Dominauskas
  */
 
@@ -16,14 +18,14 @@ public class Bike {
     private int wheelSize, gears, ID;
 
     /**
-     * Default constructor to create bike class object.
+     * Class constructor
      */
     public Bike() {
 
     }
 
     /**
-     * Constructor to set all the variables.
+     * Class constructor to set all the variables about the bike.
      * @param ID the id of the bike.
      * @param brand the brand of the bike.
      * @param type the type of the bike.
@@ -184,9 +186,13 @@ public class Bike {
      * @return Returns all the data about the bike to a single String variable.
      */
 
+    public void setShop(String address, String number) {
+        Shop shop = new Shop(address, number);
+    }
+
     @Override
     public String toString() {
         NumberFormat format = NumberFormat.getCurrencyInstance();
-        return "Gamintojas: " + brand + " | Rūšis: " + type + " | Svoris: " + weight + "kg | Spalva: " + colour + " | Pavarų kiekis: " + gears + " | Rato dydis: " + wheelSize + " inch. | Kaina: " + format.format(price) + "\n";
+        return ID + ". Gamintojas: " + brand + " | Rūšis: " + type + " | Svoris: " + weight + "kg | Spalva: " + colour + " | Pavarų kiekis: " + gears + " | Rato dydis: " + wheelSize + " inch. | Kaina: " + format.format(price) + "\n";
     }
 }

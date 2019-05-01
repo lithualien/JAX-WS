@@ -1,14 +1,23 @@
 package com.github.lithualien.dao;
 
-import com.github.lithualien.bikes.Bike;
+import com.github.lithualien.bike.Bike;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Class to manage the data and transfer it to the
+ * @author Tomas Dominauskas
+ */
 
 public class BikeDaoImpl implements BikeDao {
 
     private List<Bike> bikes;
     private int i = 3;
+
+    /**
+     * Class constructor to create a list and add few bike.
+     */
 
     public BikeDaoImpl() {
         bikes = new ArrayList<>();
@@ -16,9 +25,26 @@ public class BikeDaoImpl implements BikeDao {
         bikes.add(new Bike(2, "Baltic Wheel", "Electric", "Red", 14.35, 20, 9, 989.99f));
     }
 
+    /**
+     * Method to get all bike.
+     * @return the list of all bike.
+     */
+
     public List<Bike> getAll() {
         return bikes;
     }
+
+    /**
+     * Method to add a new bike.
+     * @param brand the brand of the bike.
+     * @param type the type of the bike.
+     * @param colour the colour of the bike.
+     * @param weight the weight of the bike
+     * @param gears the amount of geras of the bike.
+     * @param wheelSize the size of the wheel of the bike.
+     * @param price the price of the bike
+     * @return the new bike.
+     */
 
     public Bike addBike(String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
         Bike bike = new Bike(i, brand, type, colour, weight, gears, wheelSize, price);
@@ -27,7 +53,19 @@ public class BikeDaoImpl implements BikeDao {
         return bike;
     }
 
-    @Override
+    /**
+     * Method to update the existing bike.
+     * @param ID the id of the bike.
+     * @param brand the brand of the bike.
+     * @param type the type of the bike.
+     * @param colour the colour of the bike.
+     * @param weight the weight of the bike
+     * @param gears the amount of geras of the bike.
+     * @param wheelSize the size of the wheel of the bike.
+     * @param price the price of the bike.
+     * @return the updated bike.
+     */
+
     public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price) {
         bikes.get(ID - 1).setBrand(brand);
         bikes.get(ID - 1).setType(type);
@@ -39,7 +77,12 @@ public class BikeDaoImpl implements BikeDao {
         return bikes.get(ID - 1);
     }
 
-    @Override
+    /**
+     * Method to delete the existing bike.
+     * @param ID the id of the bike.
+     * @return true or false, depending of success of the operation.
+     */
+
     public boolean deleteBike(int ID) {
         for (Bike temp : bikes) {
             if(temp.getID() == ID) {
@@ -48,5 +91,14 @@ public class BikeDaoImpl implements BikeDao {
             }
         }
         return false;
+    }
+
+    /**
+     * Method to count the amount of the bike.
+     * @return number of the bike.
+     */
+
+    public int countBikes() {
+        return bikes.size();
     }
 }
