@@ -51,6 +51,7 @@ public class Bike {
         this.price = price;
         this.address = address;
         this.number = number;
+        shops.add(new Shop(address, number));
     }
 
     /**
@@ -197,6 +198,7 @@ public class Bike {
 
     public void setShop(List<Shop> shops) {
         this.shops = shops;
+        //shops.add(new Shop(address, number));
     }
 
     /**
@@ -204,7 +206,6 @@ public class Bike {
      */
 
     public List<Shop> getShop() {
-        shops.add(new Shop(address, number));
         return shops;
     }
 

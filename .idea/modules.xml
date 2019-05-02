@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JAX-WS.iml" filepath="$PROJECT_DIR$/JAX-WS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JAX-WS[server].iml" filepath="$PROJECT_DIR$/JAX-WS[server].iml" />
     </modules>
   </component>
 </project>
