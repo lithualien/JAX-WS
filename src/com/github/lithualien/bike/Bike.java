@@ -212,7 +212,6 @@ public class Bike {
     /**
      * @return Returns all the data about the bike to a single String variable.
      */
-    @Override
     public String toString() {
         NumberFormat format = NumberFormat.getCurrencyInstance();
         return ID + ". Gamintojas: " + brand + " | Rūšis: " + type + " | Svoris: " + weight + "kg | Spalva: " + colour + " | Pavarų kiekis: " + gears + " | Rato dydis: " + wheelSize + " inch. | Kaina: " + format.format(price) + " | Adresas: " + getShop().get(0).getAddress() + " | Telefonas: " + getShop().get(0).getNumber() + "\n";

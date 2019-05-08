@@ -72,17 +72,25 @@ public class BikeDaoImpl implements BikeDao {
      */
 
     public Bike updateBike(int ID, String brand, String type, String colour, double weight, int gears, int wheelSize, float price, String address, String number) {
-        bikes.get(ID - 1).setBrand(brand);
-        bikes.get(ID - 1).setType(type);
-        bikes.get(ID - 1).setColour(colour);
-        bikes.get(ID - 1).setWeight(weight);
-        bikes.get(ID - 1).setGears(gears);
-        bikes.get(ID - 1).setWheelSize(wheelSize);
-        bikes.get(ID - 1).setPrice(price);
-        List<Shop> shops = new ArrayList<>();
-        shops.add(new Shop(address, number));
-        bikes.get(ID - 1).setShop(shops);
-        return bikes.get(ID - 1);
+        int counter = 0;
+
+        for (Bike temp : bikes) {
+            if(temp.getID() == ID) {
+                bikes.get(counter).setBrand(brand);
+                bikes.get(counter).setType(type);
+                bikes.get(counter).setColour(colour);
+                bikes.get(counter).setWeight(weight);
+                bikes.get(counter).setGears(gears);
+                bikes.get(counter).setWheelSize(wheelSize);
+                bikes.get(counter).setPrice(price);
+                List<Shop> shops = new ArrayList<>();
+                shops.add(new Shop(address, number));
+                bikes.get(counter).setShop(shops);
+                break;
+            }
+            counter++;
+        }
+        return bikes.get(counter);
     }
 
     /**
@@ -92,11 +100,13 @@ public class BikeDaoImpl implements BikeDao {
      */
 
     public boolean deleteBike(int ID) {
+        int counter = 0;
         for (Bike temp : bikes) {
             if(temp.getID() == ID) {
-                bikes.remove(ID - 1);
+                bikes.remove(counter);
                 return true;
             }
+            counter++;
         }
         return false;
     }
